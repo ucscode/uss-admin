@@ -2,7 +2,7 @@
 
 defined( 'UADMIN_DIR' ) OR DIE;
 
-Events::addListener('uadmin:page//users//edit:left', function($user) {
+Events::addListener('uadmin:pages/users/edit.left', function($user) {
 	/**
 	 *	Update User input
 	 */
@@ -36,13 +36,13 @@ Events::addListener('uadmin:page//users//edit:left', function($user) {
 		</div>
 	</div>
 	
-<?php }, EVENT_ID . 'A-input' );
+<?php }, EVENT_ID . 'left' );
 
 
 /**
  * Change User Avatar
  */
-Events::addListener('uadmin:page//users//edit:left', function($user) {
+Events::addListener('uadmin:pages/users/edit.left', function($user) {
 	
 ?>
 
@@ -58,10 +58,10 @@ Events::addListener('uadmin:page//users//edit:left', function($user) {
 		</div>
 	</div>
 	
-<?php }, EVENT_ID . 'z-Avatar' );
+<?php }, EVENT_ID . 'left_100' );
 
 
 /**
  * Execute events at left side
  */
-Events::exec('uadmin:page//users//edit:left', $user);
+Events::exec('uadmin:pages/users/edit.left', $user);

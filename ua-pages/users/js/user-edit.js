@@ -62,10 +62,10 @@ $(function() {
 			Notiflix.Loading.hourglass( 'Deleting Account' );
 			
 			$.ajax({
-				url: uss['ua-ajax'],
+				url: Uss['ua-ajax'],
 				data: {
 					userid: btn.dataset.user,
-					nonce: uss.Nonce,
+					nonce: Uss.Nonce,
 					route: 'ua-delete-user'
 				},
 				method: 'post',

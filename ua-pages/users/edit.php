@@ -42,7 +42,7 @@ Uss::route( $userFocus . "/(\w+)", function($match) use($ulistMenu) {
 		 * If user login session has not expired, add javascript codes;
 		 * This is to prevent the javascript link from displaying in the login page if authentication has failed
 		 */
-		Events::addListener('@body::after', function() {
+		Events::addListener('@body:after', function() {
 			$src = Core::url( __DIR__ . '/js/user-edit.js' );
 			echo "\t<script src='{$src}'></script>\n";
 		});
@@ -62,46 +62,48 @@ Uss::route( $userFocus . "/(\w+)", function($match) use($ulistMenu) {
 		
 		if( empty($user) ) {
 			
-			Udash::empty_state(function() use($ulistMenu) {
-				$href = $ulistMenu->get_attr('href');
-				$info = "
-					<div class='mb-3'>It seems the user has been removed</div>
-					<a href='{$href}' class='btn btn-primary'>
-						<i class='bi bi-people me-1'></i> Back To List
-					</a>
-				";
-				echo trim($info);
-			});
+			Events::addListener('uadmin:pages/users/edit', function() use($ulistMenu) {
+
+				Udash::empty_state(function() use($ulistMenu) {
+					$href = $ulistMenu->get_attr('href');
+					$info = "
+						<div class='mb-3'>It seems the user has been removed</div>
+						<a href='{$href}' class='btn btn-primary'>
+							<i class='bi bi-people me-1'></i> Back To List
+						</a>
+					";
+					echo trim($info);
+				});
 			
-			return;
+			}, EVENT_ID );
+			
+		} else {
+			
+			/**
+			 * Design Edit Page Template
+			 */
+			Events::addListener('uadmin:pages/users/edit', function($user) {
+				
+				$userRoles = Roles::user( $user['id'] )::get_user_roles();
+				
+				$self = ( Uss::$global['user']['id'] === $user['id'] );
+				
+				/**
+				 * Load user detail into Template Tags
+				 */
+				array_walk($user, function($value, $key) {
+					Uss::tag("user.{$key}", $value);
+				});
+				
+				Uss::tag('col.left', 'col-sm-12 col-md-7 col-lg-8', false);
+				Uss::tag('col.right', 'col-sm-12 col-md-5 col-lg-4', false);
+				
+				require __DIR__ . '/SECTIONS/template-user-edit.php';
+				
+			}, EVENT_ID );
 			
 		};
 
-		
-		/**
-		 * Design Edit Page Template
-		 */
-		Events::addListener('uadmin:pages/users/edit', function($user) {
-			
-			$userRoles = Roles::user( $user['id'] )::get_user_roles();
-			
-			$self = ( Uss::$global['user']['id'] === $user['id'] );
-			
-			/**
-			 * Load user detail into Template Tags
-			 */
-			array_walk($user, function($value, $key) {
-				Uss::tag("user.{$key}", $value);
-			});
-			
-			Uss::tag('col.left', 'col-sm-12 col-md-7 col-lg-8', false);
-			Uss::tag('col.right', 'col-sm-12 col-md-5 col-lg-4', false);
-			
-			require __DIR__ . '/SECTIONS/template-user-edit.php';
-			
-		});
-		
-		
 		/**
 		 * Execute Edit Event
 		 */

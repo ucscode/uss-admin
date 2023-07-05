@@ -4,33 +4,12 @@
 
 defined( 'UADMIN_DIR' ) OR DIE;
 
-/**
- * Remove Undesired Element
- * Dominate an event by using it's EVENT ID
- */
-$templatePart = array(
-	'udash:auth.right' => [ 
-		'signin-reset', 
-		'signin-reverse'
-	],
-	'udash:auth/signin@form' => [ 'reconfirm' ]
-);
-
-# Dominate events and hide some contents that would display in login page
-
-foreach( $templatePart as $event => $IDs ) {
-	foreach( $IDs as $eventID ) {
-		# Override the event
-		Events::addListener( $event, null, EVENT_ID . $eventID );
-	};
-};
-
 # Add CSS script that will be used across the every page in the admin panel
 
 Events::addListener('@head:after', function() {
 	$href = Core::url( Uadmin::ASSETS_DIR . '/css/style.css' );
 	echo "\t<link rel='stylesheet' href='{$href}' />\n";
-});
+}, EVENT_ID . 'style');
 
 
 # Customize the login page
@@ -40,8 +19,10 @@ Events::addListener('udash:auth/signin@form', function() { ?>
 		<i class='bi bi-stars animate__animated animate__delay-1s animate__flash '></i>
 		<span class='d-block mt-2'>Hi Admin</span>
 	</h4>
-<?php }, EVENT_ID . 'Welcome');
+<?php }, EVENT_ID . '_welcome');
 
+
+# --------------------------------------------------------
 
 # Override and Customize the authentication fields in uss-dashboard login page
 
@@ -54,7 +35,7 @@ Events::addListener('udash:auth/signin@form', function() { ?>
 			<input type="email" placeholder="Email" class='form-control' name='login' required>
 		</div>
 	</div>
-<?php }, EVENT_ID . 'login');
+<?php }, EVENT_ID . 'field'); // login field
 
 
 Events::addListener('udash:auth/signin@form', function() { ?>
@@ -66,7 +47,7 @@ Events::addListener('udash:auth/signin@form', function() { ?>
 			<input type="password" placeholder="Password" class='form-control' name='password' required>
 		</div>
 	</div>
-<?php }, EVENT_ID . 'password'); 
+<?php }, EVENT_ID . 'field_100'); // password field
 
 
 Events::addListener('udash:auth/signin@form', function() { ?>
@@ -75,7 +56,32 @@ Events::addListener('udash:auth/signin@form', function() { ?>
 			<i class='bi bi-power'></i> - Login
 		</button>
 	</div>
-<?php }, EVENT_ID . 'submit');
+<?php }, EVENT_ID . 'field_300'); // submit button
+
+# ------------------------------------------------------
+
+/**
+ * Remove The rest Of the Unwanted Fields
+ * Dominate an event by using it's EVENT ID
+ */
+$templatePart = array(
+	'udash:auth/signin@form' => [ 
+		'field_200'
+	],
+	'udash:auth.right' => [ 
+		'signin_100',
+		'signin_200'
+	]
+);
+
+# Dominate events and hide some contents that would display in login page
+
+foreach( $templatePart as $event => $IDs ) {
+	foreach( $IDs as $eventID ) {
+		# Override the event
+		Events::addListener( $event, null, EVENT_ID . $eventID );
+	};
+};
 
 
 # Update the ~Title &~ Tagline

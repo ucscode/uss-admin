@@ -5,7 +5,7 @@ defined( 'UADMIN_DIR' ) OR DIE;
 /**
  * Access Control Block
  */ 
-Events::addListener('uadmin:page//users//edit:right', function($user) use($self) {
+Events::addListener('uadmin:pages/users/edit.right', function($user) use($self) {
 	
 ?>
 	
@@ -64,13 +64,13 @@ Events::addListener('uadmin:page//users//edit:right', function($user) use($self)
 	</div>
 
 
-<?php }, EVENT_ID . 'AccessControl' );
+<?php }, EVENT_ID . 'right' );
 
 
 /**
  * Change Password Block
  */
-Events::addListener('uadmin:page//users//edit:right', function() { ?>
+Events::addListener('uadmin:pages/users/edit.right', function() { ?>
 	
 	<div class='border mb-3 fs-0_9rem rounded-2 overflow-auto'>
 		<div class='bg-light p-2 text-center'>
@@ -81,13 +81,13 @@ Events::addListener('uadmin:page//users//edit:right', function() { ?>
 		</div>
 	</div>
 
-<?php }, EVENT_ID . 'ChangePassword' );
+<?php }, EVENT_ID . 'right_100' );
 
 
 /**
  * Delete User Block
  */
-Events::addListener('uadmin:page//users//edit:right', function() use($user) {
+Events::addListener('uadmin:pages/users/edit.right', function() use($user) {
 	
 	/**
 	 * Determine users authority level
@@ -106,10 +106,10 @@ Events::addListener('uadmin:page//users//edit:right', function() use($user) {
 		</button>
 	</div>
 	
-<?php }, EVENT_ID . 'DeleteUser' );
+<?php }, EVENT_ID . 'right_200' );
 	
 
 /**
  * Execute events at right
  */
-Events::exec('uadmin:page//users//edit:right', $user);
+Events::exec('uadmin:pages/users/edit.right', $user);

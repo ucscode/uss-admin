@@ -10,7 +10,7 @@ defined( 'UADMIN_DIR' ) OR DIE;
 			<div class='%{col.left} mb-4'>
 				
 				<?php 
-					Events::addListener('uadmin:pages/users/new@left', function() {
+					Events::addListener('uadmin:pages/users/new.left@form', function() {
 						
 						$getPost = function($group, $key) {
 
@@ -57,7 +57,7 @@ defined( 'UADMIN_DIR' ) OR DIE;
 					/**
 					 * New User Form Event Left
 					 */
-					Events::exec('uadmin:pages/users/new@left'); 
+					Events::exec('uadmin:pages/users/new.left@form'); 
 				?>
 				
 			</div>
@@ -65,7 +65,7 @@ defined( 'UADMIN_DIR' ) OR DIE;
 			<div class='%{col.right} mb-4'>
 				
 				<?php 
-					Events::addListener('uadmin:pages/users/new@right', function() { 
+					Events::addListener('uadmin:pages/users/new.right@form', function() { 
 				?>
 					<div class='text-center'>
 						<div class='user-avatar mx-auto mb-2'>
@@ -79,7 +79,7 @@ defined( 'UADMIN_DIR' ) OR DIE;
 					/**
 					 * New User Form Event Right
 					 */
-					Events::exec('uadmin:pages/users/new@right'); 
+					Events::exec('uadmin:pages/users/new.right@form'); 
 				?>
 				
 			</div>

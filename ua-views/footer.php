@@ -6,7 +6,7 @@ defined( 'UADMIN_DIR' ) OR DIE;
 
 # Add Listener
 
-Events::addListener('uadmin:footer', function() {
+Events::addListener('@body:beforeAfter', function() {
 
 	# Check if user is logged in
 
@@ -17,10 +17,10 @@ Events::addListener('uadmin:footer', function() {
 			<p class="text-sm copyright text-center">
 				Powered By &mdash;
 				<a href="<?php echo Uss::$global['website']; ?>" rel="nofollow" target="_blank">
-					<u>%{PROJECT_NAME}</u>
+					<u><?php echo PROJECT_NAME; ?></u>
 				</a>
 			</p>
 			<!-- end row -->
 		</div>
 	</footer>
-<?php }, 'ucscode' . mt_rand() ); ?>
+<?php }, EVENT_ID . 'copyright'); ?>

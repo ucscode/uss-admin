@@ -300,7 +300,7 @@ call_user_func(function() use(&$user) {
 		$user = Udash::fetch_assoc( DB_TABLE_PREFIX . "_users", $user['id'] );
 		
 			
-	}, EVENT_ID . 'submit' );
+	}, EVENT_ID );
 	
 	/**
 	 * Execute Submit Event

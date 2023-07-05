@@ -22,4 +22,4 @@ Events::addListener('uadmin:pages/users@options.dropdown', function($data) use($
 		<i class='bi bi-x-lg me-1'></i> Delete
 	</button>
 </li>
-<?php }); ?>
+<?php }, EVENT_ID . "default"); ?>

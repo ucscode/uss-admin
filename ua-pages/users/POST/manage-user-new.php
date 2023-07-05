@@ -244,7 +244,7 @@ call_user_func(function() {
 			
 		}
 	
-	}, EVENT_ID . 'add-new' );
+	}, EVENT_ID );
 	
 	/**
 	 *

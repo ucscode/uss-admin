@@ -1,6 +1,6 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 Events::addListener('uadmin:page//users//edit:left', function($user) {
 	/**

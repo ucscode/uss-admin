@@ -1,4 +1,4 @@
-<?php defined( 'UADMIN_MOD_DIR' ) OR DIE; ?>
+<?php defined( 'UADMIN_DIR' ) OR DIE; ?>
 
 <div class="d-flex vh-100 align-items-center text-center text-bg-dark">
 	<div class="cover-container row w-100 p-3 mx-auto flex-column">

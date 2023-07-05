@@ -1,6 +1,6 @@
 <?php 
 
-defined( 'UADMIN_FOCUS_URI' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 /**
  * Focus On The User List
@@ -81,7 +81,7 @@ Uss::route( $userFocus . "/(\w+)", function($match) use($ulistMenu) {
 		/**
 		 * Design Edit Page Template
 		 */
-		Events::addListener('uadmin:page//users//edit', function($user) {
+		Events::addListener('uadmin:pages/users/edit', function($user) {
 			
 			$userRoles = Roles::user( $user['id'] )::get_user_roles();
 			
@@ -105,7 +105,7 @@ Uss::route( $userFocus . "/(\w+)", function($match) use($ulistMenu) {
 		/**
 		 * Execute Edit Event
 		 */
-		Events::exec('uadmin:page//users//edit', $user);
+		Events::exec('uadmin:pages/users/edit', $user);
 		
 	});
 	

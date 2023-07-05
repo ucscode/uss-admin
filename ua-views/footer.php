@@ -2,11 +2,11 @@
 
 # Secure Entry
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 # Add Listener
 
-Events::addListener('udash:footer', function() {
+Events::addListener('uadmin:footer', function() {
 
 	# Check if user is logged in
 

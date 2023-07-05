@@ -1,16 +1,16 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 
 call_user_func(function() use(&$user) {
 	
-	if( $_SERVER['REQUEST_METHOD'] !== 'POST' || empty($user) ) return;
+	if( $_SERVER['REQUEST_METHOD'] == 'GET' || empty($user) ) return;
 	
 	/**
 	 * Handle _POST Request
 	 */
-	Events::addListener('uadmin:page//users//edit::submit', function() use(&$user) {
+	Events::addListener('uadmin:pages/users/edit.submit', function() use(&$user) {
 		
 		/**
 		 * STEP 1
@@ -240,7 +240,7 @@ call_user_func(function() use(&$user) {
 					/**
 					 * Notify Admin Of The Change
 					 */
-					Events::addListener('uadmin:page//users//edit:left', function() use($value) {
+					Events::addListener('uadmin:pages/users/edit.left', function() use($value) {
 						
 						$value = htmlspecialchars($value, ENT_QUOTES | ENT_HTML5, 'UTF-8');
 						
@@ -272,7 +272,7 @@ call_user_func(function() use(&$user) {
 			 * If no exception is thrown up till this point
 			 * The update was successful
 			 */
-			Events::addListener( 'uadmin:page//users//edit:left', function() {
+			Events::addListener( 'uadmin:pages/users/edit.left', function() {
 				echo "<div class='alert alert-success mb-5'>
 						<i class='bi bi-check-circle me-2'></i> Account successfully updated
 					</div>";
@@ -285,7 +285,7 @@ call_user_func(function() use(&$user) {
 			/**
 			 * Disclose Exception Message
 			 */
-			Events::addListener('uadmin:page//users//edit:left', function() use($e) {
+			Events::addListener('uadmin:pages/users/edit.left', function() use($e) {
 				echo "<div class='alert alert-danger'>
 						<i class='bi bi-exclamation-triangle me-2'></i> {$e->getMessage()}
 					</div>";
@@ -305,6 +305,6 @@ call_user_func(function() use(&$user) {
 	/**
 	 * Execute Submit Event
 	 */
-	Events::exec('uadmin:page//users//edit::submit', $user);
+	Events::exec('uadmin:pages/users/edit.submit', $user);
 
 });

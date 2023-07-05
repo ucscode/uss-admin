@@ -1,11 +1,11 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 /**
  * The user settings navigation board
  */
-Events::addListener('uadmin:page//settings', function( $data ) {
+Events::addListener('uadmin:pages/settings', function( $data ) {
 	
 	$settingsMenu = $data['menu'];
 	

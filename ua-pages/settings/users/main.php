@@ -1,11 +1,11 @@
 <?php
 
-defined( 'UADMIN_MOD_DIR' );
+defined( 'UADMIN_DIR' );
 
 /**
  * 
  */
-Uss::route( UADMIN_FOCUS_URI . "/settings/users", function() {
+Uss::route( UADMIN_ROUTE . "/settings/users", function() {
 	
 	require __DIR__ . '/POST.php';
 	
@@ -29,7 +29,7 @@ Uss::route( UADMIN_FOCUS_URI . "/settings/users", function() {
 				<form method='POST' enctype='multipart/form-data'>
 					<fieldset>
 						
-						<?php Events::addListener('admin.settings.users::input', function() use($__checked) { ?>
+						<?php Events::addListener('uadmin:pages/settings/users@form', function() use($__checked) { ?>
 						
 							<div class='mb-5 row r'>
 								<div class='col-4 col-sm-2'>
@@ -48,7 +48,7 @@ Uss::route( UADMIN_FOCUS_URI . "/settings/users", function() {
 						
 						<?php }, '0-disable-signup'); ?>
 						
-						<?php Events::addListener('admin.settings.users::input', function() use($__checked) { ?>
+						<?php Events::addListener('uadmin:pages/settings/users@form', function() use($__checked) { ?>
 						
 							<div class='mb-5 row '>
 								<div class='col-4 col-sm-2'>
@@ -67,7 +67,7 @@ Uss::route( UADMIN_FOCUS_URI . "/settings/users", function() {
 					
 						<?php }, 'collect-username'); ?>
 						
-						<?php Events::addListener('admin.settings.users::input', function() use($__checked) { ?>
+						<?php Events::addListener('uadmin:pages/settings/users@form', function() use($__checked) { ?>
 						
 							<div class='mb-5 row '>
 								<div class='col-4 col-sm-2'>
@@ -86,7 +86,7 @@ Uss::route( UADMIN_FOCUS_URI . "/settings/users", function() {
 						
 						<?php }, 'confirm-email'); ?>
 						
-						<?php Events::addListener('admin.settings.users::input', function() use($__checked) { ?>
+						<?php Events::addListener('uadmin:pages/settings/users@form', function() use($__checked) { ?>
 						
 							<div class='mb-5 row '>
 								<div class='col-4 col-sm-2'>
@@ -105,7 +105,7 @@ Uss::route( UADMIN_FOCUS_URI . "/settings/users", function() {
 						
 						<?php }, 'enable-affiliation'); ?>
 						
-						<?php Events::addListener('admin.settings.users::input', function() use($__checked) { ?>
+						<?php Events::addListener('uadmin:pages/settings/users@form', function() use($__checked) { ?>
 						
 							<div class='mb-5 row '>
 								<div class='col-4 col-sm-2'>
@@ -124,7 +124,7 @@ Uss::route( UADMIN_FOCUS_URI . "/settings/users", function() {
 						
 						<?php }, 'lock-email'); ?>
 						
-						<?php Events::addListener('admin.settings.users::input', function() use($__checked) { ?>
+						<?php Events::addListener('uadmin:pages/settings/users@form', function() use($__checked) { ?>
 						
 							<div class='mb-5 row '>
 								<div class='col-4 col-sm-2'>
@@ -143,7 +143,7 @@ Uss::route( UADMIN_FOCUS_URI . "/settings/users", function() {
 						
 						<?php }, 'reconfirm-email'); ?>
 						
-						<?php Events::addListener('admin.settings.users::input', function() use($__checked) { ?>
+						<?php Events::addListener('uadmin:pages/settings/users@form', function() use($__checked) { ?>
 						
 							<div class='border-bottom mb-4'></div>
 							
@@ -168,7 +168,7 @@ Uss::route( UADMIN_FOCUS_URI . "/settings/users", function() {
 						<?php }, 'roles'); ?>
 						
 						<?php 
-							Events::addListener('admin.settings.users::input', function() {
+							Events::addListener('uadmin:pages/settings/users@form', function() {
 						?>
 							
 							<div class='mb-5 row'>
@@ -186,7 +186,7 @@ Uss::route( UADMIN_FOCUS_URI . "/settings/users", function() {
 							
 						<?php }, 'trash-automatically'); ?>
 						
-						<?php Events::exec( 'admin.settings.users::input', [], true ); ?>
+						<?php Events::exec( 'uadmin:pages/settings/users@form', [], true ); ?>
 						
 						<input type='hidden' name='nonce' value='<?php echo Uss::nonce( 'users' ); ?>'>
 						
@@ -202,7 +202,7 @@ Uss::route( UADMIN_FOCUS_URI . "/settings/users", function() {
 			</div>
 			
 			<div class='col-lg-4'>
-				<?php Events::exec( 'admin.settings.users:col-right' ); ?>
+				<?php Events::exec( 'uadmin:pages/settings/users.right' ); ?>
 			</div>
 			
 		</div>

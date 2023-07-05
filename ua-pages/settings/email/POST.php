@@ -1,6 +1,6 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 call_user_func(function() {
 	
@@ -11,7 +11,7 @@ call_user_func(function() {
 	/**
 	 * Update Email Configuration
 	 */
-	Events::addListener( 'uadmin:page:settings:email/post', function() {
+	Events::addListener( 'uadmin:pages/settings/email.submit', function() {
 			
 		$progress = [];
 		
@@ -36,6 +36,6 @@ call_user_func(function() {
 	/**
 	 * Event POST
 	 */
-	Events::exec( 'uadmin:page:settings:email/post' );
+	Events::exec( 'uadmin:pages/settings/email.submit' );
 
 });

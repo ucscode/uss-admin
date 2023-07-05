@@ -1,11 +1,11 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 /**
  * Create Dropdown Items
  */
-Events::addListener('uadmin:page/users@dropdown', function($data) use($ulistMenu) { 
+Events::addListener('uadmin:pages/users@options.dropdown', function($data) use($ulistMenu) { 
 	
 	/** 
 	 * Redirect to user dedicated page

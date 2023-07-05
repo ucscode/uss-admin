@@ -1,6 +1,6 @@
 <?php 
 
-$settingsFocus = UADMIN_FOCUS_URI . '/settings';
+$settingsFocus = UADMIN_ROUTE . '/settings';
 
 /**
  * Create The settings Menu
@@ -58,7 +58,7 @@ Uss::route( $settingsFocus, function() use(&$settingsMenu) {
 				/**
 				 * Setting Page Event Execution
 				 */
-				Events::exec( 'uadmin:page//settings', $data ); 
+				Events::exec( 'uadmin:pages/settings', $data ); 
 			?>
 		</div>
 	</div>

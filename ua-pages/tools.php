@@ -1,6 +1,6 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 /**
  * Define Menu Title
@@ -23,7 +23,7 @@ $toolMenu = Uss::$global['menu']->add( $menuTitle, array(
  */
 $infoMenu = $toolMenu->add('info', array(
 	'label' => 'info',
-	'href' => Core::url( ROOT_DIR . '/' . ( $infoFocus = UADMIN_FOCUS_URI . '/info' ) )
+	'href' => Core::url( ROOT_DIR . '/' . ( $infoFocus = UADMIN_ROUTE . '/info' ) )
 ));
 
 
@@ -31,13 +31,16 @@ $infoMenu = $toolMenu->add('info', array(
 
 Uss::route( $infoFocus, function() use($infoMenu) {
 	
-	/** Activate Menu */
+	# Activate Menu
+
 	$infoMenu->set_attr('active', true);
 	
-	/** Activate Parent Menu (Tools) */
+	# Activate Parent Menu (Tools) 
+
 	$infoMenu->parent_menu->set_attr('active', true);
 	
-	/** Display CPanel Info */
+	# Display CPanel Info
+
 	Udash::view(function() {
 		
 		// Prepare Information;
@@ -77,13 +80,13 @@ Uss::route( $infoFocus, function() use($infoMenu) {
 		$info['Platform Version'] = Uss::VERSION;
 		$info['Platform Prefix'] = 'uss';
 		$info['Platform Language'] = 'en-GB';
-		$info['Platform Documentation'] = "<a class='text-nowrap' href='https://ucscode.me/uss/doc' target='_blank'>
+		$info['Platform Documentation'] = "<a class='text-nowrap' href='http://uss.ucscode.me/docs' target='_blank'>
 			<i class='bi bi-link-45deg me-1'></i> View Documentation
 		</a>";
 		
 		$info['Author Name'] = 'UCSCODE &lt;Uchenna Ajah&gt;';
 		
-		$info['Author Website'] = "<a href='https://ucscode.me' class='text-nowrap' target='_blank'>
+		$info['Author Website'] = "<a href='http://ucscode.me' class='text-nowrap' target='_blank'>
 			<i class='bi bi-globe-americas me-1'></i> ucscode.me
 		</a>";
 		

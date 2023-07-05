@@ -1,6 +1,6 @@
 <?php 
 
-( defined( 'UADMIN_MOD_DIR' ) && $_SERVER['REQUEST_METHOD'] != 'GET' ) OR DIE;
+( defined( 'UADMIN_DIR' ) && $_SERVER['REQUEST_METHOD'] != 'GET' ) OR DIE;
 
 # Get Email Template
 
@@ -16,7 +16,7 @@ $adminPermit = Roles::user( $this->user['id'] )::hasPermission( 'view-cpanel' );
 
 # Location
 
-$location = $adminPermit ? UADMIN_FOCUS_URI : UDASH_ROUTE;
+$location = $adminPermit ? UADMIN_ROUTE : UDASH_ROUTE;
 
 $href = Core::url( ROOT_DIR . "/{$location}" );
 

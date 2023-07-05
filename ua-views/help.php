@@ -1,6 +1,6 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 /**
  * Check For Dashboard Module
@@ -10,7 +10,7 @@ Events::addListener('modules-loaded', function() {
 	 * Check if user is accessing admin panel
 	 * And then confirm if dashboard module is present
 	 */
-	if( Uss::query(0) == UADMIN_FOCUS_URI && !class_exists('udash') ) {
+	if( Uss::query(0) == UADMIN_ROUTE && !class_exists('udash') ) {
 	
 		Uss::view(function() { 
 
@@ -19,7 +19,7 @@ Events::addListener('modules-loaded', function() {
 				<div class="row flex-lgs-row-reverse align-items-center py-5 px-4 bg-light">
 				
 					<div class="col-lg-10 mx-auto mb-4">
-						<img src="<?php echo Core::url( UADMIN_MOD_DIR . "/ua-assets/images/1677511496611.png" ); ?>" class="img-fluid" alt="User Synthetics Dashboard" loading="lazy">
+						<img src="<?php echo Core::url( UADMIN_DIR . "/ua-assets/images/1677511496611.png" ); ?>" class="img-fluid" alt="User Synthetics Dashboard" loading="lazy">
 					</div>
 					
 					<div class="col-lg-10 mx-auto text-center">

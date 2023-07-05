@@ -1,6 +1,6 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 /**
  * The Main General Setting Page
@@ -37,7 +37,7 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 			<div class='row'>
 				
 				<?php 
-					Events::addListener('uadmin:page//settings//general:main', function() {
+					Events::addListener('uadmin:pages/settings/general.main', function() {
 				?>
 				
 				<div class='%{col.main}'>
@@ -46,7 +46,7 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 						<fieldset>
 							
 							<?php 
-								Events::addListener('uadmin:page//settings//general:form', function() {
+								Events::addListener('uadmin:pages/settings/general@form', function() {
 							?>
 							<div class='mb-3 mb-md-5'>
 								<div class='d-inline-flex'>
@@ -62,7 +62,7 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 							<?php }, EVENT_ID . '0'); ?>
 							
 							<?php 
-								Events::addListener('uadmin:page//settings//general:form', function() {
+								Events::addListener('uadmin:pages/settings/general@form', function() {
 							?>
 							<div class='mb-3 mb-lg-4 row'>
 								<label class='form-label col-lg-3'>Site Name</label>
@@ -73,7 +73,7 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 							<?php }, EVENT_ID . '1' ); ?>
 								
 							<?php 
-								Events::addListener('uadmin:page//settings//general:form', function() {
+								Events::addListener('uadmin:pages/settings/general@form', function() {
 							?>
 							<div class='mb-3 mb-lg-4 row'>
 								<label class='form-label col-lg-3'>Headline</label>
@@ -84,7 +84,7 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 							<?php }, EVENT_ID . '2'); ?>
 								
 							<?php 
-								Events::addListener('uadmin:page//settings//general:form', function() {
+								Events::addListener('uadmin:pages/settings/general@form', function() {
 							?>
 							<div class='mb-3 mb-lg-4 row'>
 								<label class='form-label col-lg-3'>Description</label>
@@ -97,7 +97,7 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 								/**
 								 * Event Execution
 								 */
-								Events::exec( 'uadmin:page//settings//general:form' ); 
+								Events::exec( 'uadmin:pages/settings/general@form' ); 
 							?>
 							
 							<div class='border-bottom mb-4'></div>
@@ -118,7 +118,7 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 					/**
 					 * Execute General Page Event
 					 */
-					Events::exec( 'uadmin:page//settings//general:main' ); 
+					Events::exec( 'uadmin:pages/settings/general.main' ); 
 				?>
 
 			</div>

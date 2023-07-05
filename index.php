@@ -15,8 +15,8 @@
  
 defined( 'ROOT_DIR' ) OR DIE;
 
-define( 'UADMIN_MOD_DIR', __DIR__ );
-define( 'UADMIN_FOCUS_URI', 'admin' );
+define( 'UADMIN_DIR', __DIR__ );
+define( 'UADMIN_ROUTE', 'admin' );
 
 
 /**
@@ -36,12 +36,12 @@ Events::addListener('udash:ready', function() {
 	/**
 	 * Include files
 	 */
-	foreach( $resources as $file ) require_once UADMIN_MOD_DIR . "/ua-resources/{$file}";
+	foreach( $resources as $file ) require_once UADMIN_DIR . "/ua-resources/{$file}";
 	
 	/**
 	 * Load Admin Programs
 	 */
-	Udash::load( UADMIN_FOCUS_URI, Uadmin::RES_DIR . '/load-admin-pages.php' );
+	Udash::load( UADMIN_ROUTE, Uadmin::RES_DIR . '/load-admin-pages.php' );
 	
 	/**
 	 * Set hook for modules that wishes to load after the admin module;

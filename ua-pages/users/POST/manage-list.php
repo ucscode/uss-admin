@@ -1,6 +1,6 @@
 <?php
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 /**
  * 
@@ -20,7 +20,7 @@ call_user_func(function() {
 	
 	# Handle Bulk Request
 	
-	Events::addListener('uadmin:page/users.submit', function() use($securityErrorMsg) {
+	Events::addListener('uadmin:pages/users.submit', function() use($securityErrorMsg) {
 		
 		# IF IT AIN'T A BULK REQUEST, IGNORE
 		
@@ -103,7 +103,7 @@ call_user_func(function() {
 	/**
 	 * Handle a single action
 	 */
-	Events::addListener('uadmin:page/users.submit', function() use($securityErrorMsg) {
+	Events::addListener('uadmin:pages/users.submit', function() use($securityErrorMsg) {
 		
 		/**
 		 * If it's a bulk request, ignore
@@ -164,6 +164,6 @@ call_user_func(function() {
 	/**
 	 * Execute Post Requests
 	 */
-	Events::exec('uadmin:page/users.submit');
+	Events::exec('uadmin:pages/users.submit');
 	
 });

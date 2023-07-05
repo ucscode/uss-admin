@@ -3,12 +3,12 @@
 /**
  * The Admin General Settings
  */
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 /**
  * General Settings Navigation Board
  */
-Events::addListener('uadmin:page//settings', function($data) {
+Events::addListener('uadmin:pages/settings', function($data) {
 	
 	$settingsMenu = $data['menu'];
 	

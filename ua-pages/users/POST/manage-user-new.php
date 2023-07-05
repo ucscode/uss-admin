@@ -2,7 +2,7 @@
 
 # Secure Entry
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 /**
  * We wrap this into a self executing function
@@ -12,7 +12,7 @@ call_user_func(function() {
 		
 	if( $_SERVER['REQUEST_METHOD'] == 'GET' || empty(Uss::$global['user']) ) return;
 
-	Events::addListener('uadmin:page/users/new.submit', function() {
+	Events::addListener('uadmin:pages/users/new.submit', function() {
 	
 		try {
 			
@@ -144,7 +144,7 @@ call_user_func(function() {
 					
 					# repare Output Message
 					
-					$href = Core::url( ROOT_DIR . '/' . UADMIN_FOCUS_URI . "/users/{$this->user['usercode']}" );
+					$href = Core::url( ROOT_DIR . '/' . UADMIN_ROUTE . "/users/{$this->user['usercode']}" );
 					
 					$this->message[] = "<div class='d-flex'>
 						<i class='bi bi-person-check fs-22px me-2'></i> 
@@ -249,6 +249,6 @@ call_user_func(function() {
 	/**
 	 *
 	 */
-	Events::exec('uadmin:page/users/new.submit');
+	Events::exec('uadmin:pages/users/new.submit');
 
 });

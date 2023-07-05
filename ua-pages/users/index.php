@@ -1,10 +1,10 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 # Create user Menu & URI
 
-$userFocus = UADMIN_FOCUS_URI . "/users";
+$userFocus = UADMIN_ROUTE . "/users";
 
 $menuTitle = '_users';
 
@@ -26,7 +26,7 @@ require __DIR__ . '/ajax/index.php';
 /**
  * Require the child pages & menu
  */
-require __DIR__ . '/users-list.php';
-require __DIR__ . '/users-edit.php';
-require __DIR__ . '/users-new.php';
+require __DIR__ . '/list.php';
+require __DIR__ . '/edit.php';
+require __DIR__ . '/new.php';
 

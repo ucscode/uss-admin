@@ -2,19 +2,19 @@
 
 # Secure Entry
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 
 # Configure universal pages path
 
-Udash::config( 'page:notification', UADMIN_FOCUS_URI . '/notifications' );
-Udash::config( 'page:signout', UADMIN_FOCUS_URI . '/signout' );
-Udash::config( 'signout:redirect', Core::url( ROOT_DIR . '/' . UADMIN_FOCUS_URI ) );
+Udash::config( 'page:notification', UADMIN_ROUTE . '/notifications' );
+Udash::config( 'page:signout', UADMIN_ROUTE . '/signout' );
+Udash::config( 'signout:redirect', Core::url( ROOT_DIR . '/' . UADMIN_ROUTE ) );
 
 
 # Customize The Admin Interface
 
-require UADMIN_MOD_DIR . '/ua-style.php';
+require UADMIN_DIR . '/ua-style.php';
 
 
 # Handle User Authentication

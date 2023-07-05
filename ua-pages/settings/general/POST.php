@@ -1,6 +1,6 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) or DIE;
+defined( 'UADMIN_DIR' ) or DIE;
 
 call_user_func(function() {
 	
@@ -15,7 +15,7 @@ call_user_func(function() {
 		/**
 		 * Create Post Event
 		 */
-		Events::addListener( 'uadmin:page//settings//general::submit', function() {
+		Events::addListener( 'uadmin:pages/settings/general.submit', function() {
 			
 			$progress = [];
 			
@@ -36,7 +36,7 @@ call_user_func(function() {
 		
 		// ---------- [{ Exec Event }] ----------
 		
-		Events::exec( 'uadmin:page//settings//general::submit' );
+		Events::exec( 'uadmin:pages/settings/general.submit' );
 		
 		
 		Udash::refresh_site_vars();

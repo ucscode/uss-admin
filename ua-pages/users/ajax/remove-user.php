@@ -1,6 +1,6 @@
 <?php
 
-defined( 'UADMIN_MOD_DIR' );
+defined( 'UADMIN_DIR' );
 
 /**
  * Remove a user from database!

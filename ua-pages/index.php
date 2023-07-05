@@ -2,7 +2,7 @@
 
 # Secure Entry
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 
 # Create The Overview Menu!
@@ -10,14 +10,14 @@ defined( 'UADMIN_MOD_DIR' ) OR DIE;
 Uss::$global['menu']->add('_cpanel', array(
 	"label" => "Overview",
 	"icon" => "<i class='bi bi-columns-gap'></i>",
-	'href' => Core::url( ROOT_DIR . '/' . UADMIN_FOCUS_URI ),
-	'active' => ( implode("/", Uss::query()) == UADMIN_FOCUS_URI )
+	'href' => Core::url( ROOT_DIR . '/' . UADMIN_ROUTE ),
+	'active' => ( implode("/", Uss::query()) == UADMIN_ROUTE )
 ));
 
 
 # Stay Focused!
 
-Uss::route( UADMIN_FOCUS_URI, function() {
+Uss::route( UADMIN_ROUTE, function() {
 	
 	Udash::view(function() {
 		
@@ -26,7 +26,7 @@ Uss::route( UADMIN_FOCUS_URI, function() {
 		 * A module needs to fill it up by adding an event listener
 		 */
 		 
-		Events::exec( 'uadmin:page//index' );
+		Events::exec( 'uadmin:pages/index' );
 		
 	});
 	

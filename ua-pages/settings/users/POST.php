@@ -1,17 +1,17 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 call_user_func(function() {
 	
-	if( $_SERVER['REQUEST_METHOD'] !== 'POST' ) return;
+	if( $_SERVER['REQUEST_METHOD'] != 'POST' ) return;
 		
 	if( !Uss::nonce( 'users', $_POST['nonce'] ) ) return Uss::console( '@alert', "Security Check Failed!" );
 
 	/**
 	 * Event Listener
 	 */
-	Events::addListener( 'uadmin:page//settings//users::post', function() {
+	Events::addListener( 'uadmin:pages/settings/users.submit', function() {
 		
 		$progress = [];
 		
@@ -33,6 +33,6 @@ call_user_func(function() {
 		
 	// -------- [{ Exec Event }] -------
 	
-	Events::exec( 'uadmin:page//settings//users::post' );
+	Events::exec( 'uadmin:pages/settings/users.submit' );
 
 });

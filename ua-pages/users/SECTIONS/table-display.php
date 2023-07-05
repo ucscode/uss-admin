@@ -1,6 +1,6 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 /**
  * Prepare Table
@@ -85,7 +85,7 @@ $table->prepare(function($data) use($table) {
 		 * Output Buffering
 		 */
 		ob_start();
-		Events::exec( 'uadmin:page/users@dropdown', $data );
+		Events::exec( 'uadmin:pages/users@options.dropdown', $data );
 	
 	/**
 	 * Append Output to dropdown list

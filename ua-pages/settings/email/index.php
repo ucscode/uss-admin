@@ -1,11 +1,11 @@
 <?php 
 	
-defined( "UADMIN_MOD_DIR" ) or die;
+defined( "UADMIN_DIR" ) or die;
 
 /**
  * Email Setting Board
  */
-Events::addListener('uadmin:page//settings', function( $data ) {
+Events::addListener('uadmin:pages/settings', function( $data ) {
 	
 	$settingsMenu = $data['menu'];
 	

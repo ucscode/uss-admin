@@ -1,6 +1,6 @@
 <?php 
 
-defined( 'UADMIN_MOD_DIR' ) OR DIE;
+defined( 'UADMIN_DIR' ) OR DIE;
 
 # Append child menu to the parent menu (user)
 
@@ -48,7 +48,7 @@ Uss::route( $userFocus, function() use($ulistMenu) {
 		/**
 		 * Create User List Table
 		 */
-		Events::addListener('uadmin:page/users', function($data) {
+		Events::addListener('uadmin:pages/users', function($data) {
 			
 			$table = $data['table'];
 			
@@ -59,7 +59,7 @@ Uss::route( $userFocus, function() use($ulistMenu) {
 		/**
 		 * Execute the content for user list page
 		 */
-		Events::exec('uadmin:page/users', array(
+		Events::exec('uadmin:pages/users', array(
 			"SQL" => &$SQL,
 			"table" => &$table
 		));

@@ -59,7 +59,7 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 								</div>
 								<input type='file' name='icon' class='form-control d-none'  accept='.jpg,.jpeg,.png,.gif' id='iconic' data-uss-image-preview='.the-image'>
 							</div>
-							<?php }, EVENT_ID . '0'); ?>
+							<?php }, EVENT_ID . 'field'); ?>
 							
 							<?php 
 								Events::addListener('uadmin:pages/settings/general@form', function() {
@@ -70,7 +70,7 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 									<input type='text' name='site[title]' class='form-control' value='<?php echo Uss::$global['title']; ?>'>
 								</div>
 							</div>
-							<?php }, EVENT_ID . '1' ); ?>
+							<?php }, EVENT_ID . 'field_100' ); ?>
 								
 							<?php 
 								Events::addListener('uadmin:pages/settings/general@form', function() {
@@ -81,7 +81,7 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 									<input type='text' name='site[tagline]' class='form-control' value='<?php echo Uss::$global['tagline']; ?>'>
 								</div>
 							</div>
-							<?php }, EVENT_ID . '2'); ?>
+							<?php }, EVENT_ID . 'field_200'); ?>
 								
 							<?php 
 								Events::addListener('uadmin:pages/settings/general@form', function() {
@@ -92,7 +92,7 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 									<textarea type='text' name='site[description]' class='form-control' rows='8'><?php echo Uss::$global['description']; ?></textarea>
 								</div>
 							</div>
-							<?php }, EVENT_ID . '3' );
+							<?php }, EVENT_ID . 'field_300' );
 								
 								/**
 								 * Event Execution

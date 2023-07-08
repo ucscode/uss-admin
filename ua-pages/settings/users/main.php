@@ -5,8 +5,11 @@ defined( 'UADMIN_DIR' );
 /**
  * 
  */
-Uss::route( UADMIN_ROUTE . "/settings/users", function() {
+Uss::route( UADMIN_ROUTE . "/settings/users", function() use($settingsMenu) {
 	
+	$settingsMenu->set_attr('active', true);
+	$settingsMenu->parent_menu->set_attr('active', true);
+
 	require __DIR__ . '/POST.php';
 	
 	Udash::view(function() {

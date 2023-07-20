@@ -10,8 +10,8 @@ Uss::route( $settingsFocus . "/email", function() use($settingsMenu) {
 	/**
 	 * Activate Settings Menu
 	 */
-	$settingsMenu->set_attr('active', true);
-	$settingsMenu->parent_menu->set_attr('active', true);
+	$settingsMenu->setAttr('active', true);
+	$settingsMenu->parentMenu->setAttr('active', true);
 	
 	/** Update POST Request */
 	

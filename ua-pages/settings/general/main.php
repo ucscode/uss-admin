@@ -9,8 +9,8 @@ Uss::route( $settingsFocus . "/general", function() use($settingsMenu) {
 	
 	/** Activate Menu */
 	
-	$settingsMenu->set_attr('active', true);
-	$settingsMenu->parent_menu->set_attr('active', true);
+	$settingsMenu->setAttr('active', true);
+	$settingsMenu->parentMenu->setAttr('active', true);
 	
 	
 	/** POST Request */

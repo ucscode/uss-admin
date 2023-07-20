@@ -15,7 +15,7 @@ Uss::route( $userFocus, function() use($ulistMenu) {
 	
 	# Activate this menu when it is in focus
 	
-	$ulistMenu->set_attr('active', true);
+	$ulistMenu->setAttr('active', true);
 	
 
 	# Handle $_POST request!

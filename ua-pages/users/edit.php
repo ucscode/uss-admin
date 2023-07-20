@@ -15,7 +15,7 @@ Uss::route( $userFocus . "/(\w+)", function($match) use($ulistMenu) {
 	/** 
 	 * Keep the list menu active
 	 */
-	$ulistMenu->set_attr('active', true);
+	$ulistMenu->setAttr('active', true);
 	
 	/**
 	 * Define table prefix
@@ -65,7 +65,7 @@ Uss::route( $userFocus . "/(\w+)", function($match) use($ulistMenu) {
 			Events::addListener('uadmin:pages/users/edit', function() use($ulistMenu) {
 
 				Udash::empty_state(function() use($ulistMenu) {
-					$href = $ulistMenu->get_attr('href');
+					$href = $ulistMenu->getAttr('href');
 					$info = "
 						<div class='mb-3'>It seems the user has been removed</div>
 						<a href='{$href}' class='btn btn-primary'>

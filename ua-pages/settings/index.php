@@ -32,10 +32,10 @@ foreach( $simplePages as $pagedir ) require __DIR__ . "/{$pagedir}/index.php";
 Uss::route( $settingsFocus, function() use(&$settingsMenu) {
 	
 	/** Activate Menu */
-	$settingsMenu->set_attr('active', true);
+	$settingsMenu->setAttr('active', true);
 	
 	/** Activate Parent Menu */
-	$settingsMenu->parent_menu->set_attr('active', true);
+	$settingsMenu->parentMenu->setAttr('active', true);
 	
 	/** Display Menu Page */
 	Udash::view(function() use(&$settingsMenu) {

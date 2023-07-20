@@ -14,7 +14,7 @@ Events::addListener('uadmin:pages/settings', function($data) {
 	
 ?>
 	<div class='col'>
-		<a href='<?php echo $settingsMenu->get_attr('href') . '/general'; ?>'>
+		<a href='<?php echo $settingsMenu->getAttr('href') . '/general'; ?>'>
 			<div class='card'>
 				<div class='card-body'>
 					<h1 class='mb-2'> <span class='bi bi-gear me-1'></span> </h1>

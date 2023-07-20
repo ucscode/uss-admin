@@ -12,7 +12,7 @@ Events::addListener('uadmin:pages/settings', function( $data ) {
 ?>
 		
 	<div class='col'>
-		<a href='<?php echo $settingsMenu->get_attr('href') . '/users'; ?>'>
+		<a href='<?php echo $settingsMenu->getAttr('href') . '/users'; ?>'>
 			<div class='card'>
 				<div class='card-body'>
 					<h1 class='mb-2'> <span class='bi bi-people me-1'></span> </h1>

@@ -7,8 +7,8 @@ defined( 'UADMIN_DIR' );
  */
 Uss::route( UADMIN_ROUTE . "/settings/users", function() use($settingsMenu) {
 	
-	$settingsMenu->set_attr('active', true);
-	$settingsMenu->parent_menu->set_attr('active', true);
+	$settingsMenu->setAttr('active', true);
+	$settingsMenu->parentMenu->setAttr('active', true);
 
 	require __DIR__ . '/POST.php';
 	

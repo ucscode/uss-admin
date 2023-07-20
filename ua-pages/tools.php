@@ -33,11 +33,11 @@ Uss::route( $infoFocus, function() use($infoMenu) {
 	
 	# Activate Menu
 
-	$infoMenu->set_attr('active', true);
+	$infoMenu->setAttr('active', true);
 	
 	# Activate Parent Menu (Tools) 
 
-	$infoMenu->parent_menu->set_attr('active', true);
+	$infoMenu->parentMenu->setAttr('active', true);
 	
 	# Display CPanel Info
 

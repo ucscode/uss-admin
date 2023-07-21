@@ -106,6 +106,8 @@ call_user_func(function() {
 					$this->rawPassword = $this->user['password'];
 					$this->user['password'] = Udash::password( $this->rawPassword );
 					
+					if( empty($this->user['username']) ) $this->user['username'] = null;
+
 					$this->pushDBUser(); // Add user to database
 						
 				}

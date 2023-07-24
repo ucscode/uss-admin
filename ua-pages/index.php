@@ -11,7 +11,8 @@ Uss::$global['menu']->add('_cpanel', array(
 	"label" => "Overview",
 	"icon" => "<i class='bi bi-columns-gap'></i>",
 	'href' => Core::url( ROOT_DIR . '/' . UADMIN_ROUTE ),
-	'active' => ( implode("/", Uss::query()) == UADMIN_ROUTE )
+	'active' => ( implode("/", Uss::query()) == UADMIN_ROUTE ),
+	'order' => 0
 ));
 
 

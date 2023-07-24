@@ -13,7 +13,8 @@ $menuTitle = '_tools';
  */
 $toolMenu = Uss::$global['menu']->add( $menuTitle, array(
 	'label' => 'tools',
-	'icon' => "<i class='bi bi-wrench-adjustable'></i>"
+	'icon' => "<i class='bi bi-wrench-adjustable'></i>",
+	"order" => 2
 ));
 
 

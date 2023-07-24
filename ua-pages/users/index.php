@@ -14,7 +14,8 @@ $menuTitle = '_users';
 Uss::$global['menu']->add($menuTitle, array(
 	'icon' => '<i class="bi bi-people"></i>',
 	'label' => 'users',
-	'active' => preg_match("~^{$userFocus}~", implode("/", Uss::query()))
+	'active' => preg_match("~^{$userFocus}~", implode("/", Uss::query())),
+	'order' => 1
 ));
 
 

@@ -86,8 +86,9 @@ foreach( $templatePart as $event => $IDs ) {
 
 # Update the ~Title &~ Tagline
 
-Uss::$global['tagline'] = "Professional Platform for <br> Professional Developers &amp; Entreprenuers";
-
+if( empty(Uss::$global['tagline']) ) {
+	Uss::$global['tagline'] = "Professional Platform for <br> Professional Developers &amp; Entreprenuers";
+};
 
 # Add Ucscode Trademark;
 

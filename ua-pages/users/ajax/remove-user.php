@@ -66,7 +66,7 @@ Events::addListener('udash:ajax', function() {
 		/**
 		 * End the script
 		 */
-		Uss::stop( !empty($status), empty($status) ? $msg[1] : $msg[0] );
+		Uss::exit( empty($status) ? $msg[1] : $msg[0] , !empty($status));
 		
 
 	} catch( Exception $e ) {
@@ -74,7 +74,7 @@ Events::addListener('udash:ajax', function() {
 		/**
 		 * Display Error Message
 		 */
-		Uss::stop( false, "<i class='bi bi-x-octagon me-2 text-danger fs-28px'></i> <br>" . $e->getMessage() );
+		Uss::exit( "<i class='bi bi-x-octagon me-2 text-danger fs-28px'></i> <br>" . $e->getMessage() , false);
 		
 	}
 

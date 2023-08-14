@@ -24,6 +24,18 @@ call_user_func(function() {
 				$progress[] = Uss::$global['options']->set( $name, $value );
 			};
 			
+			if( isset($_POST['options']) ) {
+				foreach( $_POST['options'] as $group => $data ) {
+					if( !is_array($data) ) {
+						continue;
+					};
+					foreach( $data as $key => $value ) {
+						$name = "{$group}:{$key}";
+						$progress[] = Uss::$global['options']->set( $name, $value );
+					};
+				};
+			};
+
 			Uss::$global['status'] = $status = !in_array(false, $progress);
 			
 			if( $status ) Uss::$global['message'] = "<i class='bi bi-check-circle text-success me-1'></i> Changes were saved";
